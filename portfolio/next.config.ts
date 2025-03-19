@@ -2,7 +2,9 @@
 // const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    output: "standalone",
+};
 
 // export default withNextIntl(nextConfig);
 export default nextConfig;
