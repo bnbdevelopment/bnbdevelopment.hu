@@ -16,7 +16,8 @@ const Navigation = () => {
     { name: "Rólunk", href: "/about" },
     { name: "Technológiák", href: "#tech-stack" },
     { name: "Csapatunk", href: "/team" },
-    { name: "Kapcsolat", href: "/contact" }
+    { name: "Kapcsolat", href: "/contact" },
+    { name: "Státusz", href: "https://status.bnbdevelopment.hu/status/public" },
   ];
 
   return (
