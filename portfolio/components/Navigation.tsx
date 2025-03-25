@@ -9,9 +9,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 
 const Navigation = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
   const navItems = [
     { name: "Rólunk", href: "/about" },
     { name: "Technológiák", href: "#tech-stack" },
@@ -36,6 +39,8 @@ const Navigation = () => {
         >
           <Link href="/">BNBDEVELOPMENT</Link>
         </motion.div>
+
+        {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-4">
           {navItems.map((item, index) => (
             <motion.div
@@ -77,6 +82,57 @@ const Navigation = () => {
             </DropdownMenu>
           </motion.div>
         </div>
+
+        {/* Mobile Navigation Button */}
+        <button
+          className="md:hidden p-2"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <Menu className="h-6 w-6" />
+        </button>
+
+        {/* Mobile Navigation Menu */}
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-16 left-0 right-0 bg-background/95 backdrop-blur-sm border-b md:hidden"
+          >
+            <div className="container mx-auto px-4 py-4 flex flex-col space-y-2">
+              {navItems.map((item) => (
+                <Link 
+                  key={item.name} 
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Button variant="ghost" className="w-full text-left justify-start text-sm">
+                    {item.name}
+                  </Button>
+                </Link>
+              ))}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="w-full text-left justify-start text-sm">
+                    Projektjeink
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-[200px]">
+                  <DropdownMenuItem asChild>
+                    <Link href="https://irodalomerettsegi.hu" target="_blank" className="cursor-pointer">
+                      irodalomerettsegi.hu
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="https://jegy-agorasavaria.hu" target="_blank" className="cursor-pointer">
+                      Jegyrendszer
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+          </motion.div>
+        )}
       </div>
     </motion.nav>
   );
