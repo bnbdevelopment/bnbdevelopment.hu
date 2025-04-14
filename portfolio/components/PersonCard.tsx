@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 
 interface PersonCardProps {
@@ -15,9 +15,10 @@ interface PersonCardProps {
   index: number;
   github?: string;
   linkedin?: string;
+  email?: string;
 }
 
-export function PersonCard({ name, role, description, imageUrl, index, github, linkedin }: PersonCardProps) {
+export function PersonCard({ name, role, description, imageUrl, index, github, linkedin, email }: PersonCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -42,7 +43,7 @@ export function PersonCard({ name, role, description, imageUrl, index, github, l
             <p className="text-sm text-muted-foreground leading-relaxed">
               {description}
             </p>
-            {(github || linkedin) && (
+            {(github || linkedin || email) && (
               <div className="flex gap-2 pt-2">
                 {github && (
                   <Link href={github} target="_blank" rel="noopener noreferrer">
@@ -55,6 +56,13 @@ export function PersonCard({ name, role, description, imageUrl, index, github, l
                   <Link href={linkedin} target="_blank" rel="noopener noreferrer">
                     <Button variant="outline" size="icon" className="h-9 w-9 cursor-pointer">
                       <Linkedin className="h-4 w-4 " />
+                    </Button>
+                  </Link>
+                )}
+                {email && (
+                  <Link href={`mailto:${email}`} target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" size="icon" className="h-9 w-9 cursor-pointer">
+                      <Mail className="h-4 w-4" />
                     </Button>
                   </Link>
                 )}

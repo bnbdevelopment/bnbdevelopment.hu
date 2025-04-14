@@ -14,6 +14,7 @@ const founders = [
     description: "Full-stack, AI és ML fejlesztő. Több éves tapasztalattal rendelkezem a fejlesztésben, projektjeinkben főleg a felhasználók számára készített felületek tökéletesítésével és fejlesztésével foglalkozom. Jelenleg egyetemen tanulok, Budapesten.",
     imageUrl: "/team/gyuben.png",
     github: "https://github.com/BenceGyurus",
+    email: "bencegyurus@bnbdevelopment.hu"
   },
   {
     name: "Tóth Bence",
@@ -21,7 +22,8 @@ const founders = [
     description: "Backend és ML fejlesztő, infrastruktúra vezető és üzemeltető. Több mint 10 éve foglalkozom a szoftverfejlesztéssel, rendszerüzemeltetéssel. Feladataim közé tartozik felhasználóink adatainak biztoságos tárolása, szolgáltatásaink folyamatos online állapotban tartása. Jelenleg egyetemen tanulok, külföldön.",
     imageUrl: "/team/bence.jpeg",
     github: "https://github.com/bencetotht",
-    linkedin: "https://www.linkedin.com/in/bence-totht"
+    linkedin: "https://www.linkedin.com/in/bence-totht",
+    email: "bencetoth@bnbdevelopment.hu"
   },
 ];
 
