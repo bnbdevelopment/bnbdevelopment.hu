@@ -18,7 +18,9 @@ const ProjectCard = ({ title, description, logoUrl, projectUrl }: ProjectCardPro
       transition={{ duration: 0.5 }}
     >
       <Link href={projectUrl} target="_blank">
-        <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <div className="group relative">
+          <div className="pointer-events-none absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#7004FA] to-[#22207F] opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-40" />
+          <Card className="relative overflow-hidden transition-transform duration-300 group-hover:-translate-y-0.5">
           <CardHeader className="flex items-center justify-center p-6">
             <div className="relative w-32 h-32">
               <Image
@@ -34,7 +36,8 @@ const ProjectCard = ({ title, description, logoUrl, projectUrl }: ProjectCardPro
             <CardTitle className="mb-2">{title}</CardTitle>
             <CardDescription>{description}</CardDescription>
           </CardContent>
-        </Card>
+          </Card>
+        </div>
       </Link>
     </motion.div>
   );

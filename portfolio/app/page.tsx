@@ -26,6 +26,12 @@ export default function Home() {
       logoUrl: "/projects/jegyrendszer.png",
       projectUrl: "https://jegy-agorasavaria.hu"
     },
+    {
+      title: "Dokumentáció oldal",
+      description: "Dokumentáció oldal az általunk fejlesztett projektekhez.",
+      logoUrl: "/projects/documentation.png",
+      projectUrl: "https://docs.bnbdevelopment.hu"
+    },
     // {
     //   title: "InfoAcademy",
     //   description: "Informatika érettségi felkészítő weboldal, interaktív feladatokkal, szókártyákkal, illetve tételvázlatokkal.",
@@ -37,25 +43,29 @@ export default function Home() {
   const technologies = [
     {
       title: "Next.js",
-      logo: "https://cdn.simpleicons.org/nextdotjs/white",
+      logoLight: "https://cdn.simpleicons.org/nextdotjs/black",
+      logoDark: "https://cdn.simpleicons.org/nextdotjs/white",
       referenceUrl: "https://nextjs.org",
       description: "A Next.js egy JavaScript/TypeScript keretrendszer, amelyet a weboldalaink frontend részének fejlesztéséhez használunk."
     },
     {
       title: "NestJS",
-      logo: 'https://cdn.simpleicons.org/nestjs/white',
+      logoLight: 'https://cdn.simpleicons.org/nestjs/black',
+      logoDark: 'https://cdn.simpleicons.org/nestjs/white',
       referenceUrl: "https://nestjs.org",
       description: "A NestJS egy JavaScript/TypeScript keretrendszer, amelyet a weboldalaink backend részének fejlesztéséhez használunk."
     },
     {
       title: "TypeScript",
-      logo: 'https://cdn.simpleicons.org/typescript/white',
+      logoLight: 'https://cdn.simpleicons.org/typescript/black',
+      logoDark: 'https://cdn.simpleicons.org/typescript/white',
       referenceUrl: "https://www.typescriptlang.org",
       description: "A TypeScript egy JavaScript fejlesztői környezet. Ezt használjuk legfőképpen a kódjainkban."
     },
     {
       title: "Kubernetes",
-      logo: 'https://cdn.simpleicons.org/kubernetes/white',
+      logoLight: 'https://cdn.simpleicons.org/kubernetes/black',
+      logoDark: 'https://cdn.simpleicons.org/kubernetes/white',
       referenceUrl: "https://kubernetes.io",
       description: "A Kubernetes az szolgáltatásaink futtatásáért felel. Gondoskodik róla, hogy a szolgáltatások folyamatosan működjenek, és a környezetben tudjunk növekedni."
     }
@@ -125,7 +135,8 @@ export default function Home() {
                 <TechnologyCard
                   key={tech.title}
                   title={tech.title}
-                  logoUrl={tech.logo}
+                  logoLight={tech.logoLight}
+                  logoDark={tech.logoDark}
                   referenceUrl={tech.referenceUrl}
                   description={tech.description}
                 />
@@ -139,7 +150,9 @@ export default function Home() {
         <section className="container mx-auto px-4 py-20">
           <motion.div {...fadeInUp} className="text-center">
             <h2 className="text-3xl font-bold mb-8">Kapcsolat</h2>
-            <Card className="max-w-lg mx-auto bg-card/50 backdrop-blur-sm">
+            <div className="group relative max-w-lg mx-auto">
+              <div className="pointer-events-none absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#7004FA] to-[#22207F] opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-40" />
+              <Card className="relative bg-card/50 backdrop-blur-sm transition-transform duration-300 group-hover:-translate-y-0.5">
               <CardContent className="p-6">
                 <p className="text-muted-foreground mb-4">
                   Kérdéseid vagy ötleteid vannak? Keress bátran minket!
@@ -148,7 +161,8 @@ export default function Home() {
                   info@bnbdevelopment.hu
                 </a>
               </CardContent>
-            </Card>
+              </Card>
+            </div>
           </motion.div>
         </section>
       </main>

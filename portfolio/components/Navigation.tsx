@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Menu } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { ModeToggle } from "@/components/ModeToggle";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -20,7 +22,7 @@ const Navigation = () => {
     { name: "Technológiák", href: "#tech-stack" },
     { name: "Csapatunk", href: "/team" },
     { name: "Kapcsolat", href: "/contact" },
-    { name: "Státusz", href: "https://status.bnbdevelopment.hu/status/public" },
+    { name: "Státusz", href: "https://status.bnbdevelopment.hu/" },
   ];
 
   return (
@@ -37,11 +39,21 @@ const Navigation = () => {
           transition={{ delay: 0.2 }}
           className="text-xl font-bold"
         >
-          <Link href="/">BNBDEVELOPMENT</Link>
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/logo.png"
+              alt="BNBDevelopment logo"
+              width={32}
+              height={32}
+              priority
+              className="h-8 w-8"
+            />
+            <span>BNBDEVELOPMENT</span>
+          </Link>
         </motion.div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-4">
+        <div className="hidden md:flex space-x-4 items-center">
           {navItems.map((item, index) => (
             <motion.div
               key={item.name}
@@ -50,9 +62,12 @@ const Navigation = () => {
               transition={{ delay: 0.1 * index }}
             >
               <Link href={item.href}>
-                <Button variant="ghost" className="text-sm cursor-pointer">
-                  {item.name}
-                </Button>
+                <span className="group relative inline-block">
+                  <span className="pointer-events-none absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#7004FA] to-[#22207F] opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-40" />
+                  <Button variant="ghost" className="relative text-sm cursor-pointer">
+                    {item.name}
+                  </Button>
+                </span>
               </Link>
             </motion.div>
           ))}
@@ -62,11 +77,14 @@ const Navigation = () => {
             transition={{ delay: 0.1 * navItems.length }}
           >
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="text-sm cursor-pointer">
-                  Projektjeink
-                </Button>
-              </DropdownMenuTrigger>
+              <div className="group relative inline-block">
+                <div className="pointer-events-none absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#7004FA] to-[#22207F] opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-40" />
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="relative text-sm cursor-pointer">
+                    Projektjeink
+                  </Button>
+                </DropdownMenuTrigger>
+              </div>
               <DropdownMenuContent align="end" className="w-[200px]">
                 <DropdownMenuItem asChild>
                   <Link href="https://irodalomerettsegi.hu" target="_blank" className="cursor-pointer">
@@ -74,22 +92,26 @@ const Navigation = () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="https://jegy-agorasavaria.hu" target="_blank" className="cursor-pointer">
-                    Jegyrendszer
+                  <Link href="https://docs.bnbdevelopment.hu" target="_blank" className="cursor-pointer">
+                    Dokumentáció
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </motion.div>
+          <ModeToggle />
         </div>
 
         {/* Mobile Navigation Button */}
-        <button
-          className="md:hidden p-2"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <Menu className="h-6 w-6" />
-        </button>
+        <div className="md:hidden group relative">
+          <div className="pointer-events-none absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#7004FA] to-[#22207F] opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-40" />
+          <button
+            className="p-2 relative"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <Menu className="h-6 w-6" />
+          </button>
+        </div>
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
@@ -106,17 +128,23 @@ const Navigation = () => {
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                 >
-                  <Button variant="ghost" className="w-full text-left justify-start text-sm">
-                    {item.name}
-                  </Button>
+                  <span className="group relative inline-block w-full">
+                    <span className="pointer-events-none absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#7004FA] to-[#22207F] opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-40" />
+                    <Button variant="ghost" className="relative w-full text-left justify-start text-sm">
+                      {item.name}
+                    </Button>
+                  </span>
                 </Link>
               ))}
               <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="w-full text-left justify-start text-sm">
-                    Projektjeink
-                  </Button>
-                </DropdownMenuTrigger>
+                <div className="group relative inline-block w-full">
+                  <div className="pointer-events-none absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#7004FA] to-[#22207F] opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-40" />
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="relative w-full text-left justify-start text-sm">
+                      Projektjeink
+                    </Button>
+                  </DropdownMenuTrigger>
+                </div>
                 <DropdownMenuContent className="w-[200px]">
                   <DropdownMenuItem asChild>
                     <Link href="https://irodalomerettsegi.hu" target="_blank" className="cursor-pointer">
@@ -130,6 +158,9 @@ const Navigation = () => {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
+              <div className="pt-2">
+                <ModeToggle />
+              </div>
             </div>
           </motion.div>
         )}

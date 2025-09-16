@@ -19,7 +19,7 @@ const founders = [
   {
     name: "Tóth Bence",
     role: "Alapító & Fejlesztő",
-    description: "Backend és ML fejlesztő, infrastruktúra vezető és üzemeltető. Több mint 10 éve foglalkozom a szoftverfejlesztéssel, rendszerüzemeltetéssel. Feladataim közé tartozik felhasználóink adatainak biztoságos tárolása, szolgáltatásaink folyamatos online állapotban tartása. Jelenleg egyetemen tanulok, külföldön.",
+    description: "Backend fejlesztő, infrastruktúra vezető és üzemeltető. Több mint 10 éve foglalkozom a szoftverfejlesztéssel, rendszerüzemeltetéssel. Feladataim közé tartozik felhasználóink adatainak biztoságos tárolása, szolgáltatásaink folyamatos online állapotban tartása. Jelenleg egyetemen tanulok, külföldön.",
     imageUrl: "/team/bence.jpeg",
     github: "https://github.com/bencetotht",
     linkedin: "https://www.linkedin.com/in/bence-totht",
@@ -27,19 +27,13 @@ const founders = [
   },
 ];
 
-const additionalTeam = [
-  {
-    name: "Raposa Csenge",
-    role: "Üzlet & Marketing",
-    imageUrl: "/team/csenge.jpeg",
-    linkedin: "https://linkedin.com/in/csenge-raposa"
-  },
+// const additionalTeam = [
   // {
   //   name: "Nagy Péter",
   //   role: "Grafikus Designer",
   //   imageUrl: "/designer2.jpg"
   // }
-];
+// ];
 
 export default function TeamPage() {
   return (
@@ -80,18 +74,17 @@ export default function TeamPage() {
             ))}
           </div>
 
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {/* <h2 className="text-2xl font-semibold mb-6 text-center">Designerek</h2> */}
             <div className="grid sm:grid-cols-1 gap-4 max-w-2xl mx-auto">
               {additionalTeam.map((person, index) => (
                 <SmallPersonCard key={person.name} {...person} index={index} />
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </main>
