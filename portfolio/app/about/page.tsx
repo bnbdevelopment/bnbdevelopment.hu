@@ -45,7 +45,8 @@ export default function AboutPage() {
             <Card className="w-full h-full overflow-hidden">
               <CardContent className="p-0">
                 <Image
-                  src="/about-2.jpeg"
+                  src="/about-1.jpg"
+                  // src="/about-2.jpeg"
                   alt="BNBDEVELOPMENT Team"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-500"

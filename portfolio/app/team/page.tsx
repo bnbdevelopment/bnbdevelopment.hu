@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { PersonCard } from "@/components/PersonCard";
-import { SmallPersonCard } from "@/components/SmallPersonCard";
 
 const founders = [
   {
