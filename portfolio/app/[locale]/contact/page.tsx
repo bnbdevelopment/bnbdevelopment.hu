@@ -19,23 +19,26 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
-
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "A név legalább 2 karakter hosszú kell legyen.",
-  }),
-  email: z.string().email({
-    message: "Érvénytelen email cím.",
-  }),
-  subject: z.string().min(5, {
-    message: "A tárgy legalább 5 karakter hosszú kell legyen.",
-  }),
-  message: z.string().min(10, {
-    message: "Az üzenet legalább 10 karakter hosszú kell legyen.",
-  }),
-});
+import { useTranslations, useLocale } from "next-intl";
 
 export default function ContactPage() {
+  const t = useTranslations('contact');
+  const locale = useLocale();
+
+  const formSchema = z.object({
+    name: z.string().min(2, {
+      message: t('validation.nameMin'),
+    }),
+    email: z.string().email({
+      message: t('validation.emailInvalid'),
+    }),
+    subject: z.string().min(5, {
+      message: t('validation.subjectMin'),
+    }),
+    message: z.string().min(10, {
+      message: t('validation.messageMin'),
+    }),
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
@@ -85,10 +88,10 @@ export default function ContactPage() {
           transition={{ duration: 0.5 }}
           className="absolute left-4 -top-12"
         >
-          <Link href="/">
+          <Link href={`/${locale}`}>
             <Button variant="ghost" size="sm" className="group">
               <ChevronLeft className="h-4 w-4 mr-1 transition-transform group-hover:-translate-x-1" />
-              Vissza
+              {t('back')}
             </Button>
           </Link>
         </motion.div>
@@ -99,10 +102,10 @@ export default function ContactPage() {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Kapcsolat</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('title')}</h1>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-6" />
           <p className="text-muted-foreground max-w-md mx-auto">
-            Küldj nekünk üzenetet és hamarosan felvesszük veled a kapcsolatot!
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -120,9 +123,9 @@ export default function ContactPage() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Név</FormLabel>
+                        <FormLabel>{t('form.name')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="Az Ön neve" {...field} />
+                          <Input placeholder={t('form.namePlaceholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -133,9 +136,9 @@ export default function ContactPage() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel>{t('form.email')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="Az Ön email címe" {...field} />
+                          <Input placeholder={t('form.emailPlaceholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -147,9 +150,9 @@ export default function ContactPage() {
                   name="subject"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Tárgy</FormLabel>
+                      <FormLabel>{t('form.subject')}</FormLabel>
                       <FormControl>
-                        <Input placeholder="Az üzenet tárgya" {...field} />
+                        <Input placeholder={t('form.subjectPlaceholder')} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -160,10 +163,10 @@ export default function ContactPage() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Üzenet</FormLabel>
+                      <FormLabel>{t('form.message')}</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Írja le üzenetét..." 
+                        <Textarea
+                          placeholder={t('form.messagePlaceholder')}
                           className="min-h-[150px] resize-none"
                           {...field}
                         />
@@ -178,7 +181,7 @@ export default function ContactPage() {
                     animate={{ opacity: 1 }}
                     className="text-green-500 text-center"
                   >
-                    Üzenetét sikeresen elküldtük!
+                    {t('form.success')}
                   </motion.p>
                 )}
                 {submitStatus === 'error' && (
@@ -187,7 +190,7 @@ export default function ContactPage() {
                     animate={{ opacity: 1 }}
                     className="text-red-500 text-center"
                   >
-                    Hiba történt az üzenet küldése közben. Kérjük próbálja újra később.
+                    {t('form.error')}
                   </motion.p>
                 )}
                 <Button
@@ -195,7 +198,7 @@ export default function ContactPage() {
                   className="w-full cursor-pointer"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Küldés..." : "Üzenet küldése"}
+                  {isSubmitting ? t('form.submitting') : t('form.submit')}
                 </Button>
               </form>
             </Form>

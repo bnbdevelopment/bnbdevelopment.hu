@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "technologies": "Technologies",
+    "team": "Our Team",
+    "contact": "Contact",
+    "status": "Status",
+    "projects": "Our Projects"
+  },
+  "home": {
+    "hero": {
+      "title": "Development, Operations, Innovation",
+      "subtitle": "An enthusiastic and innovative development team creating websites and AI solutions for the future."
+    },
+    "projects": {
+      "title": "Featured Projects",
+      "irodalom": {
+        "title": "irodalomerettsegi.hu",
+        "description": "A website to help prepare for literature exams with interactive exercises, flashcards, and essay outlines."
+      },
+      "jegyrendszer": {
+        "title": "Agora Savaria Ticketing System",
+        "description": "Ticketing system for Agora Savaria cultural center in Szombathely."
+      },
+      "docs": {
+        "title": "Documentation Site",
+        "description": "Documentation site for our developed projects."
+      },
+      "infoacademy": {
+        "title": "InfoAcademy",
+        "description": "Website for InfoAcademy, a company that provides online courses for IT and programming. Still in development."
+      }
+    },
+    "technologies": {
+      "title": "Technologies",
+      "subtitle": "We work with the following technologies:",
+      "nextjs": {
+        "description": "Next.js is a JavaScript/TypeScript framework we use to develop the frontend of our websites."
+      },
+      "nestjs": {
+        "description": "NestJS is a JavaScript/TypeScript framework we use to develop the backend of our websites."
+      },
+      "typescript": {
+        "description": "TypeScript is a JavaScript development environment. We primarily use this in our code."
+      },
+      "kubernetes": {
+        "description": "Kubernetes is responsible for running our services. It ensures that services run continuously and allows us to scale in the environment."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Have questions or ideas? Feel free to reach out!"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Send us a message and we'll get back to you soon!",
+    "back": "Back",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "Your email address",
+      "subject": "Subject",
+      "subjectPlaceholder": "Message subject",
+      "message": "Message",
+      "messagePlaceholder": "Write your message...",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": "Your message has been sent successfully!",
+      "error": "An error occurred while sending the message. Please try again later."
+    },
+    "validation": {
+      "nameMin": "Name must be at least 2 characters long.",
+      "emailInvalid": "Invalid email address.",
+      "subjectMin": "Subject must be at least 5 characters long.",
+      "messageMin": "Message must be at least 10 characters long."
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "back": "Back",
+    "subtitle": "Coding for the Future",
+    "story": {
+      "paragraph1": "BNBDEVELOPMENT is the story of two guys who met during their high school years.",
+      "paragraph2": "Our similar interest in programming brought us together quite quickly, and we started thinking about more and more joint projects. Some of these never saw the light of day, but we learned a lot from each of them and gained experience. This is how we learned and mastered the software we use.",
+      "paragraph3": "Working together brought more and more projects. Our first major project was a complete ticket sales system for the Agora Savaria cinema in Szombathely. This was followed by the irodalomerettségi.hu site, which was developed for students preparing for exams, aimed specifically to help students prepare for the intermediate level literature exam from a new perspective. Over the years, we also started building our own servers, on which all of the above-mentioned projects currently run."
+    },
+    "stats": {
+      "experience": "Years of Experience",
+      "projects": "Major Projects",
+      "members": "Members",
+      "uptime": "Uptime"
+    }
+  },
+  "team": {
+    "title": "Our Team",
+    "back": "Back",
+    "members": {
+      "benceGyurus": {
+        "name": "Gyürüs Bence",
+        "role": "Founder & Developer",
+        "description": "Full-stack, AI and ML developer. I have several years of experience in development, mainly focusing on perfecting and developing user interfaces in our projects. Currently studying at university in Budapest."
+      },
+      "benceToth": {
+        "name": "Tóth Bence",
+        "role": "Founder & Developer",
+        "description": "Backend developer, infrastructure lead and operator. I have been working in software development and system administration for more quite a while. My responsibilities include securely storing our users' data and keeping our services continuously online. Currently studying at university abroad."
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 BNBDEVELOPMENT. All rights reserved."
+  }
+}

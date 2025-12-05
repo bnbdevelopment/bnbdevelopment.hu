@@ -5,36 +5,31 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { PersonCard } from "@/components/PersonCard";
-
-const founders = [
-  {
-    name: "Gyürüs Bence",
-    role: "Alapító & Fejlesztő",
-    description: "Full-stack, AI és ML fejlesztő. Több éves tapasztalattal rendelkezem a fejlesztésben, projektjeinkben főleg a felhasználók számára készített felületek tökéletesítésével és fejlesztésével foglalkozom. Jelenleg egyetemen tanulok, Budapesten.",
-    imageUrl: "/team/gyuben.png",
-    github: "https://github.com/BenceGyurus",
-    email: "bencegyurus@bnbdevelopment.hu"
-  },
-  {
-    name: "Tóth Bence",
-    role: "Alapító & Fejlesztő",
-    description: "Backend fejlesztő, infrastruktúra vezető és üzemeltető. Több mint 10 éve foglalkozom a szoftverfejlesztéssel, rendszerüzemeltetéssel. Feladataim közé tartozik felhasználóink adatainak biztoságos tárolása, szolgáltatásaink folyamatos online állapotban tartása. Jelenleg egyetemen tanulok, külföldön.",
-    imageUrl: "/team/bence.jpeg",
-    github: "https://github.com/bencetotht",
-    linkedin: "https://www.linkedin.com/in/bence-totht",
-    email: "bencetoth@bnbdevelopment.hu"
-  },
-];
-
-// const additionalTeam = [
-  // {
-  //   name: "Nagy Péter",
-  //   role: "Grafikus Designer",
-  //   imageUrl: "/designer2.jpg"
-  // }
-// ];
+import { useTranslations, useLocale } from "next-intl";
 
 export default function TeamPage() {
+  const t = useTranslations('team');
+  const locale = useLocale();
+
+  const founders = [
+    {
+      name: t('members.benceGyurus.name'),
+      role: t('members.benceGyurus.role'),
+      description: t('members.benceGyurus.description'),
+      imageUrl: "/team/gyuben.png",
+      github: "https://github.com/BenceGyurus",
+      email: "bencegyurus@bnbdevelopment.hu"
+    },
+    {
+      name: t('members.benceToth.name'),
+      role: t('members.benceToth.role'),
+      description: t('members.benceToth.description'),
+      imageUrl: "/team/bence.jpeg",
+      github: "https://github.com/bencetotht",
+      linkedin: "https://www.linkedin.com/in/bence-totht",
+      email: "bencetoth@bnbdevelopment.hu"
+    },
+  ];
   return (
     <main className="min-h-screen pt-24 pb-16 px-4">
       <div className="container mx-auto relative max-w-6xl">
@@ -44,10 +39,10 @@ export default function TeamPage() {
           transition={{ duration: 0.5 }}
           className="absolute left-4 -top-12"
         >
-          <Link href="/">
+          <Link href={`/${locale}`}>
             <Button variant="ghost" size="sm" className="group">
               <ChevronLeft className="h-4 w-4 mr-1 transition-transform group-hover:-translate-x-1" />
-              Vissza
+              {t('back')}
             </Button>
           </Link>
         </motion.div>
@@ -58,7 +53,7 @@ export default function TeamPage() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Csapatunk</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('title')}</h1>
           {/* <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-6" />
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Megismerkedhet a BNBDEVELOPMENT csapatával. Szakértő fejlesztőink elkötelezettek 

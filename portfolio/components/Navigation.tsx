@@ -13,16 +13,20 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { ModeToggle } from "@/components/ModeToggle";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useTranslations, useLocale } from "next-intl";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const t = useTranslations('nav');
+  const locale = useLocale();
 
   const navItems = [
-    { name: "Rólunk", href: "/about" },
-    { name: "Technológiák", href: "#tech-stack" },
-    { name: "Csapatunk", href: "/team" },
-    { name: "Kapcsolat", href: "/contact" },
-    { name: "Státusz", href: "https://status.bnbdevelopment.hu/" },
+    { name: t('about'), href: `/${locale}/about` },
+    { name: t('technologies'), href: `/${locale}#tech-stack` },
+    { name: t('team'), href: `/${locale}/team` },
+    { name: t('contact'), href: `/${locale}/contact` },
+    { name: t('status'), href: "https://status.bnbdevelopment.hu/" },
   ];
 
   return (
@@ -39,7 +43,7 @@ const Navigation = () => {
           transition={{ delay: 0.2 }}
           className="text-xl font-bold"
         >
-          <Link href="/" className="flex items-center gap-2">
+          <Link href={`/${locale}`} className="flex items-center gap-2">
             <Image
               src="/logo.png"
               alt="BNBDevelopment logo"
@@ -81,7 +85,7 @@ const Navigation = () => {
                 <div className="pointer-events-none absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#7004FA] to-[#22207F] opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-40" />
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="relative text-sm cursor-pointer">
-                    Projektjeink
+                    {t('projects')}
                   </Button>
                 </DropdownMenuTrigger>
               </div>
@@ -99,6 +103,7 @@ const Navigation = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           </motion.div>
+          <LanguageSwitcher />
           <ModeToggle />
         </div>
 
@@ -141,7 +146,7 @@ const Navigation = () => {
                   <div className="pointer-events-none absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#7004FA] to-[#22207F] opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-40" />
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" className="relative w-full text-left justify-start text-sm">
-                      Projektjeink
+                      {t('projects')}
                     </Button>
                   </DropdownMenuTrigger>
                 </div>
@@ -158,7 +163,8 @@ const Navigation = () => {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <div className="pt-2">
+              <div className="pt-2 flex gap-2">
+                <LanguageSwitcher />
                 <ModeToggle />
               </div>
             </div>

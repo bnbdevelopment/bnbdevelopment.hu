@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "home": "Főoldal",
+    "about": "Rólunk",
+    "technologies": "Technológiák",
+    "team": "Csapatunk",
+    "contact": "Kapcsolat",
+    "status": "Státusz",
+    "projects": "Projektjeink"
+  },
+  "home": {
+    "hero": {
+      "title": "Fejlesztés, üzemeltetés, innováció",
+      "subtitle": "Egy lelkes és innovatív fejlesztőcsapat, akik weboldalakat és egyéb AI megoldásokat fejlesztenek a jövő számára."
+    },
+    "projects": {
+      "title": "Kiemelt projektjeink",
+      "irodalom": {
+        "title": "irodalomerettsegi.hu",
+        "description": "Irodalom érettségire való felkészülést segítő weboldal, interaktív feladatokkal, szókártyákkal, illetve tételvázlatokkal."
+      },
+      "jegyrendszer": {
+        "title": "Agora Savaria Jegyrendszer",
+        "description": "Jegyrendszer a Agora Savaria szombathelyi kulturális központ számára."
+      },
+      "docs": {
+        "title": "Dokumentáció oldal",
+        "description": "Dokumentáció oldal az általunk fejlesztett projektekhez."
+      },
+      "infoacademy": {
+        "title": "InfoAcademy",
+        "description": "Weboldal a InfoAcademy számára, amely online kurzusokat kínál IT és programozás témában. Jelenleg fejlesztés alatt áll."
+      }
+    },
+    "technologies": {
+      "title": "Technológiák",
+      "subtitle": "A következő technológiákkal dolgozunk:",
+      "nextjs": {
+        "description": "A Next.js egy JavaScript/TypeScript keretrendszer, amelyet a weboldalaink frontend részének fejlesztéséhez használunk."
+      },
+      "nestjs": {
+        "description": "A NestJS egy JavaScript/TypeScript keretrendszer, amelyet a weboldalaink backend részének fejlesztéséhez használunk."
+      },
+      "typescript": {
+        "description": "A TypeScript egy JavaScript fejlesztői környezet. Ezt használjuk legfőképpen a kódjainkban."
+      },
+      "kubernetes": {
+        "description": "A Kubernetes az szolgáltatásaink futtatásáért felel. Gondoskodik róla, hogy a szolgáltatások folyamatosan működjenek, és a környezetben tudjunk növekedni."
+      }
+    },
+    "contact": {
+      "title": "Kapcsolat",
+      "description": "Kérdéseid vagy ötleteid vannak? Keress bátran minket!"
+    }
+  },
+  "contact": {
+    "title": "Kapcsolat",
+    "subtitle": "Küldj nekünk üzenetet és hamarosan felvesszük veled a kapcsolatot!",
+    "back": "Vissza",
+    "form": {
+      "name": "Név",
+      "namePlaceholder": "Az Ön neve",
+      "email": "Email",
+      "emailPlaceholder": "Az Ön email címe",
+      "subject": "Tárgy",
+      "subjectPlaceholder": "Az üzenet tárgya",
+      "message": "Üzenet",
+      "messagePlaceholder": "Írja le üzenetét...",
+      "submit": "Üzenet küldése",
+      "submitting": "Küldés...",
+      "success": "Üzenetét sikeresen elküldtük!",
+      "error": "Hiba történt az üzenet küldése közben. Kérjük próbálja újra később."
+    },
+    "validation": {
+      "nameMin": "A név legalább 2 karakter hosszú kell legyen.",
+      "emailInvalid": "Érvénytelen email cím.",
+      "subjectMin": "A tárgy legalább 5 karakter hosszú kell legyen.",
+      "messageMin": "Az üzenet legalább 10 karakter hosszú kell legyen."
+    }
+  },
+  "about": {
+    "title": "Rólunk",
+    "back": "Vissza",
+    "subtitle": "Kódolunk a jövőért",
+    "story": {
+      "paragraph1": "A BNBDEVELOPMENT két srác története, akik gimnazista éveik során ismerték meg egymást.",
+      "paragraph2": "Hasonló érdeklődésünk a programozás iránt elég hamar összehozott minket, és elkezdtünk egyre több közös projekten gondolkodni. Része ezeknek sose látott napvilágot, viszont mindegyikből sokat tanultunk, tapasztalatot szereztünk. Így ismertük meg és sajátítottuk el az általunk használt szoftvereket is.",
+      "paragraph3": "A közös munka egyre több közös projektet hozott magával. Első nagyobb projektünk egy teljes jegy eladásért felelős rendszer volt a szombathelyi Agora Savaria filmszínház számára. Ezt követte az érettségizők számára fejlesztett irodalomerettségi.hu oldal, amelynek célja az volt, hogy segítsen a diákoknak a középszintű irodalom érettségire való felkészülésben, egy új nézőpontból. Az évek során nekiálltunk összeépíteni saját szervereinket is, amiken jelenleg az összes fent említett projektünk fut."
+    },
+    "stats": {
+      "experience": "Év tapasztalat",
+      "projects": "Nagyszabású projekt",
+      "members": "Tag",
+      "uptime": "Uptime"
+    }
+  },
+  "team": {
+    "title": "Csapatunk",
+    "back": "Vissza",
+    "members": {
+      "benceGyurus": {
+        "name": "Gyürüs Bence",
+        "role": "Alapító & Fejlesztő",
+        "description": "Full-stack, AI és ML fejlesztő. Több éves tapasztalattal rendelkezem a fejlesztésben, projektjeinkben főleg a felhasználók számára készített felületek tökéletesítésével és fejlesztésével foglalkozom. Jelenleg egyetemen tanulok, Budapesten."
+      },
+      "benceToth": {
+        "name": "Tóth Bence",
+        "role": "Alapító & Fejlesztő",
+        "description": "Backend fejlesztő, infrastruktúra vezető és üzemeltető. Több mint 10 éve foglalkozom a szoftverfejlesztéssel, rendszerüzemeltetéssel. Feladataim közé tartozik felhasználóink adatainak biztoságos tárolása, szolgáltatásaink folyamatos online állapotban tartása. Jelenleg egyetemen tanulok, külföldön."
+      }
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 BNBDEVELOPMENT. Minden jog fenntartva."
+  }
+}

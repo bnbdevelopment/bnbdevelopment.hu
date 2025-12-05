@@ -6,8 +6,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function AboutPage() {
+  const t = useTranslations('about');
+  const locale = useLocale();
   return (
     <main className="min-h-screen pt-24 pb-16 px-4">
       <div className="container mx-auto relative">
@@ -17,10 +20,10 @@ export default function AboutPage() {
           transition={{ duration: 0.5 }}
           className="absolute left-4 -top-12"
         >
-          <Link href="/">
+          <Link href={`/${locale}`}>
             <Button variant="ghost" size="sm" className="group cursor-pointer">
               <ChevronLeft className="h-4 w-4 mr-1 transition-transform group-hover:-translate-x-1" />
-              Vissza
+              {t('back')}
             </Button>
           </Link>
         </motion.div>
@@ -31,7 +34,7 @@ export default function AboutPage() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Rólunk</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('title')}</h1>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
 
@@ -63,20 +66,17 @@ export default function AboutPage() {
             className="space-y-6"
           >
             <h2 className="text-2xl md:text-3xl font-semibold">
-              Kódolunk a jövőért
+              {t('subtitle')}
             </h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                A BNBDEVELOPMENT két srác története, akik gimnazista éveik során ismerték meg egymást.
+                {t('story.paragraph1')}
               </p>
               <p>
-                Hasonló érdeklődésünk a programozás iránt elég hamar összehozott minket, és elkezdtünk egyre több közös projekten gondolkodni.
-                Része ezeknek sose látott napvilágot, viszont mindegyikből sokat tanultunk, tapasztalatot szereztünk. Így ismertük meg és sajátítottuk el az <Link href="/#tech-stack" className="text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary transition-colors">általunk használt szoftvereket</Link> is.
+                {t('story.paragraph2')}
               </p>
               <p>
-                A közös munka egyre több közös projektet hozott magával. Első nagyobb projektünk egy teljes jegy eladásért felelős rendszer volt a <Link href="https://jegy-agorasavaria.hu" className="text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary transition-colors">szombathelyi Agora Savaria filmszínház</Link> számára.
-                Ezt követte az érettségizők számára fejlesztett <Link href="https://irodalomerettsegi.hu" className="text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary transition-colors">irodalomerettségi.hu</Link> oldal, amelynek célja az volt, hogy segítsen a diákoknak a középszintű irodalom érettségire való felkészülésben, egy új nézőpontból.
-                Az évek során nekiálltunk összeépíteni saját szervereinket is, amiken jelenleg az összes fent említett projektünk fut.
+                {t('story.paragraph3')}
               </p>
             </div>
 
@@ -88,10 +88,10 @@ export default function AboutPage() {
             >
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 {[
-                  { number: "2+", label: "Év tapasztalat" },
-                  { number: "5+", label: "Nagyszabású projekt" },
-                  { number: "3", label: "Tag" },
-                  { number: "99.9%", label: "Uptime" },
+                  { number: "2+", label: t('stats.experience') },
+                  { number: "5+", label: t('stats.projects') },
+                  { number: "3", label: t('stats.members') },
+                  { number: "99.9%", label: t('stats.uptime') },
                 ].map((stat, index) => (
                   <motion.div
                     key={stat.label}

@@ -5,8 +5,11 @@ import Navigation from "@/components/Navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import ProjectCard from "@/components/ProjectCard";
 import TechnologyCard from "@/components/TechnologyCard";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
+  const t = useTranslations('home');
+
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -15,29 +18,29 @@ export default function Home() {
 
   const projects = [
     {
-      title: "irodalomerettsegi.hu",
-      description: "Irodalom érettségire való felkészülést segítő weboldal, interaktív feladatokkal, szókártyákkal, illetve tételvázlatokkal.",
+      title: t('projects.irodalom.title'),
+      description: t('projects.irodalom.description'),
       logoUrl: "/projects/irodalomerettsegi.png",
       projectUrl: "https://irodalomerettsegi.hu"
     },
     {
-      title: "Agora Savaria Jegyrendszer",
-      description: "Jegyrendszer a Agora Savaria szombathelyi kulturális központ számára.",
-      logoUrl: "/projects/jegyrendszer.png",
-      projectUrl: "https://jegy-agorasavaria.hu"
+      title: t('projects.infoacademy.title'),
+      description: t('projects.infoacademy.description'),
+      logoUrl: "/projects/infoacademy.png",
+      projectUrl: "https://infoacademy.hu"
     },
+    // {
+    //   title: t('projects.jegyrendszer.title'),
+    //   description: t('projects.jegyrendszer.description'),
+    //   logoUrl: "/projects/jegyrendszer.png",
+    //   projectUrl: "https://jegy-agorasavaria.hu"
+    // },
     {
-      title: "Dokumentáció oldal",
-      description: "Dokumentáció oldal az általunk fejlesztett projektekhez.",
+      title: t('projects.docs.title'),
+      description: t('projects.docs.description'),
       logoUrl: "/projects/documentation.png",
       projectUrl: "https://docs.bnbdevelopment.hu"
     },
-    // {
-    //   title: "InfoAcademy",
-    //   description: "Informatika érettségi felkészítő weboldal, interaktív feladatokkal, szókártyákkal, illetve tételvázlatokkal.",
-    //   logoUrl: "/projects/infoacademy",
-    //   projectUrl: "https://infoacademy.hu"
-    // }
   ];
 
   const technologies = [
@@ -46,28 +49,28 @@ export default function Home() {
       logoLight: "https://cdn.simpleicons.org/nextdotjs/black",
       logoDark: "https://cdn.simpleicons.org/nextdotjs/white",
       referenceUrl: "https://nextjs.org",
-      description: "A Next.js egy JavaScript/TypeScript keretrendszer, amelyet a weboldalaink frontend részének fejlesztéséhez használunk."
+      description: t('technologies.nextjs.description')
     },
     {
       title: "NestJS",
       logoLight: 'https://cdn.simpleicons.org/nestjs/black',
       logoDark: 'https://cdn.simpleicons.org/nestjs/white',
       referenceUrl: "https://nestjs.org",
-      description: "A NestJS egy JavaScript/TypeScript keretrendszer, amelyet a weboldalaink backend részének fejlesztéséhez használunk."
+      description: t('technologies.nestjs.description')
     },
     {
       title: "TypeScript",
       logoLight: 'https://cdn.simpleicons.org/typescript/black',
       logoDark: 'https://cdn.simpleicons.org/typescript/white',
       referenceUrl: "https://www.typescriptlang.org",
-      description: "A TypeScript egy JavaScript fejlesztői környezet. Ezt használjuk legfőképpen a kódjainkban."
+      description: t('technologies.typescript.description')
     },
     {
       title: "Kubernetes",
       logoLight: 'https://cdn.simpleicons.org/kubernetes/black',
       logoDark: 'https://cdn.simpleicons.org/kubernetes/white',
       referenceUrl: "https://kubernetes.io",
-      description: "A Kubernetes az szolgáltatásaink futtatásáért felel. Gondoskodik róla, hogy a szolgáltatások folyamatosan működjenek, és a környezetben tudjunk növekedni."
+      description: t('technologies.kubernetes.description')
     }
   ];
 
@@ -83,9 +86,9 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Fejlesztés, üzemeltetés, innováció</h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">{t('hero.title')}</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Egy lelkes és innovatív fejlesztőcsapat, akik weboldalakat és egyéb AI megoldásokat fejlesztenek a jövő számára.
+              {t('hero.subtitle')}
             </p>
           </motion.div>
         </section>
@@ -108,7 +111,7 @@ export default function Home() {
         {/* Projects Section */}
         <section className="container mx-auto px-4 py-20">
           <motion.div {...fadeInUp}>
-            <h2 className="text-3xl font-bold mb-8">Kiemelt projektjeink</h2>
+            <h2 className="text-3xl font-bold mb-8">{t('projects.title')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects.map((project) => (
                 <ProjectCard
@@ -126,9 +129,9 @@ export default function Home() {
         {/* Tech Stack Section */}
         <section id="tech-stack" className="container mx-auto px-4 py-20">
           <motion.div {...fadeInUp}>
-            <h2 className="text-3xl font-bold mb-8">Technológiák</h2>
+            <h2 className="text-3xl font-bold mb-8">{t('technologies.title')}</h2>
             <p className="text-lg text-muted-foreground mb-8">
-              A következő technológiákkal dolgozunk:
+              {t('technologies.subtitle')}
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {technologies.map((tech) => (
@@ -149,13 +152,13 @@ export default function Home() {
         {/* Contact Section */}
         <section className="container mx-auto px-4 py-20">
           <motion.div {...fadeInUp} className="text-center">
-            <h2 className="text-3xl font-bold mb-8">Kapcsolat</h2>
+            <h2 className="text-3xl font-bold mb-8">{t('contact.title')}</h2>
             <div className="group relative max-w-lg mx-auto">
               <div className="pointer-events-none absolute -inset-0.5 rounded-xl bg-gradient-to-r from-[#7004FA] to-[#22207F] opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-40" />
               <Card className="relative bg-card/50 backdrop-blur-sm transition-transform duration-300 group-hover:-translate-y-0.5">
               <CardContent className="p-6">
                 <p className="text-muted-foreground mb-4">
-                  Kérdéseid vagy ötleteid vannak? Keress bátran minket!
+                  {t('contact.description')}
                 </p>
                 <a href="mailto:info@bnbdevelopment.hu" className="text-primary hover:underline">
                   info@bnbdevelopment.hu

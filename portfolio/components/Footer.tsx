@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Coffee, BookOpen } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 
 const Footer = () => {
+  const t = useTranslations('footer');
 
   return (
     <footer className="bg-background text-foreground py-8">
@@ -60,7 +62,7 @@ const Footer = () => {
           transition={{ duration: 0.8 }}
           className="text-center text-sm"
         >
-          &copy; {new Date().getFullYear()} BNBDEVELOPMENT. Minden jog fenntartva.
+          {t('copyright').replace('2024', new Date().getFullYear().toString())}
         </motion.p>
       </div>
     </footer>
